@@ -2,6 +2,7 @@ package algorithm
 
 import "sort"
 
+//https://blog.csdn.net/weixin_44555304/article/details/104283911
 func threeSum(nums []int) [][]int {
 	var result [][]int
 	if len(nums) <= 2 {
@@ -11,10 +12,10 @@ func threeSum(nums []int) [][]int {
 	sort.Ints(nums)
 	a := 0
 	// 有三个指针，a 是最左边的，所以 a 最大值为 nums 倒数第三个索引
-	for a <= len(nums)- 3 {
+	for a <= len(nums)-3 {
 
 		// 保证 a 在向右移动时指向的值，不与之前的值相等
-		if a != 0 && nums[a] == nums[a-1]  {
+		if a != 0 && nums[a] == nums[a-1] {
 			a++
 			continue
 		}
@@ -23,7 +24,7 @@ func threeSum(nums []int) [][]int {
 		b := a + 1
 
 		// c 指向 nums 最后一个元素
-		c := len(nums) -1
+		c := len(nums) - 1
 
 		// sum 的值为后续 nums[b] + nums[c] 的值
 		sum := 0 - nums[a]
@@ -32,13 +33,13 @@ func threeSum(nums []int) [][]int {
 		for b < c {
 
 			// 保证 c 在向左偏移时指向的值，不与之前的相等
-			if c < len(nums) - 1 && nums[c] == nums[c + 1] {
+			if c < len(nums)-1 && nums[c] == nums[c+1] {
 				c--
 				continue
 			}
 
 			// 保证 b 在向右偏移时指向的值，不与之前的相等
-			if b > a + 1 && nums[b] == nums[b-1] {
+			if b > a+1 && nums[b] == nums[b-1] {
 				b++
 				continue
 			}
